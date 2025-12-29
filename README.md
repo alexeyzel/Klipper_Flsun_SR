@@ -1,13 +1,14 @@
 # Klipper Flsun SR
 
-This is my Flsun SR config for Klipper. __My Flsun SR is not stock__, it has:
-- built in Raspberry Pi 3 runnin Klipper inside with BIGTREETECH PI TFT43 screen on my custom-made mount
-- Direct drive extruder using Bondtech LGX® Lite (i also custom-made mount)
+This is my Klipper configuration for the Flsun SR. My Flsun SR is not stock; it has the following modifications:
+- Built-in Raspberry Pi 3 running Klipper, with a BIGTREETECH PI TFT43 screen mounted on a custom-made bracket
+- Direct-drive extruder using a Bondtech LGX® Lite (custom-made mount)
 - Trianglelab 115W High Power CHC Pro PT1000 hotend
-- Trianglelab TUN Pro nozzle and relevant Trianglelab heatsink (had to cut heatsink to install it on stock plate)
-- Noctua fan for extruder heatsink
-- LED lights driven by Wemos D1 mini board with ESPHome (Home Assistant) in two towers
-- 5MP USB Webcam
+- Trianglelab TUN Pro nozzle with the corresponding Trianglelab heatsink (the heatsink had to be cut to fit the stock mounting plate)
+- Noctua fan for the extruder heatsink
+- LED lights driven by a Wemos D1 Mini board with ESPHome (Home Assistant), installed in two towers
+- 5MP USB webcam
+- Mean Well LRS-350-24 PSU (quieter)
   
 __Use it on your own risk!__
 
