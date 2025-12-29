@@ -1,0 +1,94 @@
+substitutions:
+  name: esphome-web-806ba0
+  friendly_name: printer-led-2
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  name_add_mac_suffix: false
+  project:
+    name: esphome.web
+    version: '1.0'
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+  - platform: esphome
+
+# Allow provisioning Wi-Fi via serial
+improv_serial:
+
+wifi:
+  # Set up a wifi access point
+  ap: {}
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
+captive_portal:
+
+dashboard_import:
+  package_import_url: github://esphome/firmware/esphome-web/esp32c3.yaml@v2
+  import_full_config: true
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# To have a "next url" for improv serial
+web_server:
+
+light:
+  - platform: partition
+    name: "Printer light R"
+    segments:
+      - id: light1
+        from: 0
+        to: 24
+    restore_mode: ALWAYS_OFF
+    effects:
+      - addressable_random_twinkle:
+      - addressable_color_wipe:
+      - strobe:
+      - addressable_rainbow:
+      - pulse:
+      - random:
+      - addressable_scan:
+      - addressable_twinkle:
+      - addressable_fireworks:
+
+  - platform: partition
+    name: "Printer light L"
+    segments:
+      - id: light1
+        from: 25
+        to: 49
+    restore_mode: ALWAYS_OFF
+    effects:
+      - addressable_random_twinkle:
+      - addressable_color_wipe:
+      - strobe:
+      - addressable_rainbow:
+      - pulse:
+      - random:
+      - addressable_scan:
+      - addressable_twinkle:
+      - addressable_fireworks:
+
+  - platform: esp32_rmt_led_strip
+    rgb_order: GRB
+    pin: GPIO4
+    num_leds: 50
+    chipset: ws2812
+    id: light1
+    internal: true
